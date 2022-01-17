@@ -20,8 +20,12 @@
  *    console.log(r.height);      // => 20
  *    console.log(r.getArea());   // => 200
  */
-function Rectangle(/* width, height */) {
-  throw new Error('Not implemented');
+function Rectangle(width, height) {
+  return {
+    width,
+    height,
+    getArea: () => width * height,
+  };
 }
 
 
@@ -35,8 +39,8 @@ function Rectangle(/* width, height */) {
  *    [1,2,3]   =>  '[1,2,3]'
  *    { width: 10, height : 20 } => '{"height":10,"width":20}'
  */
-function getJSON(/* obj */) {
-  throw new Error('Not implemented');
+function getJSON(obj) {
+  return JSON.stringify(obj);
 }
 
 
@@ -51,8 +55,8 @@ function getJSON(/* obj */) {
  *    const r = fromJSON(Circle.prototype, '{"radius":10}');
  *
  */
-function fromJSON(/* proto, json */) {
-  throw new Error('Not implemented');
+function fromJSON(proto, json) {
+  return Object.setPrototypeOf(JSON.parse(json), proto);
 }
 
 
@@ -110,13 +114,79 @@ function fromJSON(/* proto, json */) {
  *  For more examples see unit tests.
  */
 
+// class Builder {
+//   constructor() {
+//     this.item = '';
+//     this.element = '';
+//     this.id = '';
+//     this.pseudoElement = '';
+//     this.class = '';
+//     this.attr = '';
+//     this.pseudoClass = '';
+//   }
+
+//   buildElement(val) {
+//     if (!this.element) {
+//       this.element = val;
+//     }
+//     this.updateItem();
+//     return this.item;
+//   }
+
+//   buildId(val) {
+//     if (!this.id) {
+//       this.id = `#${val}`;
+//     }
+//     this.updateItem();
+//     return this.item;
+//   }
+
+//   buildClass(val) {
+//     this.class = `${this.class}.${val}`;
+//     this.updateItem();
+//     return this.item;
+//   }
+
+//   buildAttr(val) {
+//     this.attr = `${this.attr}[${val}]`;
+//     this.updateItem();
+//     return this.item;
+//   }
+
+//   buildPseudoClass(val) {
+//     this.pseudoClass = `${this.pseudoClass}:${val}`;
+//     this.updateItem();
+//     return this.item;
+//   }
+
+//   buildPseudoElem(val) {
+//     if (!this.pseudoElement) {
+//       this.pseudoElement = `::${val}`;
+//     }
+//     this.updateItem();
+//     return this.item;
+//   }
+
+//   updateItem() {
+//     this.item = this.element + this.id + this.class
+//       + this.attr + this.pseudoClass + this.pseudoElement;
+//   }
+
+//   static stringify() {
+//     return JSON.stringify(this.item);
+//   }
+// }
 const cssSelectorBuilder = {
   element(/* value */) {
     throw new Error('Not implemented');
+    // const b = new Builder().buildElement(value);
+    // Object.setPrototypeOf(b, Builder.stringify);
+    // return b;
   },
 
   id(/* value */) {
     throw new Error('Not implemented');
+    // return new Builder().buildId(value);
   },
 
   class(/* value */) {
