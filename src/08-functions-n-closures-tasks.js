@@ -112,12 +112,13 @@ function memoize(func) {
  * retryer() => 2
  */
 function retry(func, attempts) {
+  let a = attempts;
   return function () {
-    while (attempts !== 0) {
+    while (a !== 0) {
       try {
         return func();
       } catch (er) {
-        attempts -= 1;
+        a -= 1;
       }
     }
     return null;

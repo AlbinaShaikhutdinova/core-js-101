@@ -15,7 +15,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
   },
-  rules: {
-    "no-param-reassign": 0
-  }
+  // rules: {
+  //   "no-param-reassign": 0
+  // }
 };
