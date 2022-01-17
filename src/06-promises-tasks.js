@@ -103,12 +103,13 @@ function getFastestPromise(array) {
  *    });
  *
  */
-function chainPromises(array, action) {
-  return Promise.allSettled(array)
-    .then((results) => {
-      const values = results.filter((res) => res.status === 'fulfilled');
-      return values.map((val) => val.value).reduce(action);
-    });
+function chainPromises(/* array, action */) {
+  throw new Error('Not implemented');
+  // return Promise.allSettled(array)
+  //   .then((results) => {
+  //     const values = results.filter((res) => res.status === 'fulfilled');
+  //     return values.map((val) => val.value).reduce(action);
+  //   });
 }
 
 module.exports = {

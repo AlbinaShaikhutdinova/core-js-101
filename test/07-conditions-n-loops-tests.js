@@ -143,7 +143,7 @@ describe('08-conditions-n-loops-tasks', () => {
         rect2: {
           top: 25, left: 25, width: 10, height: 10,
         },
-        expected: false,
+        expected: true,
       }, {
         rect1: {
           top: 5, left: 5, width: 20, height: 20,
